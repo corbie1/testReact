@@ -2,7 +2,6 @@ import {ActionType} from '../../action-types';
 
 // Дефолтное состояние
 const initialState = {
-
 };
 // Редьюсер изначально принимает в стор дефолтное состояние(выше), а после выполнения экшена возвращает данные
 export default function userReducer(state = initialState, action) {
