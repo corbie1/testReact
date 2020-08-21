@@ -2,22 +2,19 @@ import {ActionType} from './action-types';
 
 // Передача данных в стор 
 export const ActionCreator = {
-    getLogin: (login) =>({
-        type: ActionType.GET_LOGIN,
-        payload: login,
-      }),
-    getUser: (user) =>({
-        type: ActionType.GET_USER,
-        payload: user,
-      }),
-    getUserError: () =>({
-      type: 'GET_USER_ERROR'
+    setLogin: (login) =>({
+      type: ActionType.SET_LOGIN,
+      payload: login,
     }),
-    getUserSuccess: (data) =>({
-      type: 'GET_USER_SUCCESS',
-      payload: data.avatar_url
+    getUserAvatar: (user) =>({
+      type: ActionType.GET_USER_AVATAR,
+      payload: user,
     }),
-    fetchUser: () =>({
-      type: 'FETCHED_USER'
-    })
+    getUserAvatarFailure: () =>({
+      type: 'GET_USER_AVATAR_FAILURE'
+    }),
+    getUserAvatarSuccess: (avatar_url) =>({
+      type: 'GET_USER_AVATAR_SUCCESS',
+      payload: avatar_url
+    }),
 };

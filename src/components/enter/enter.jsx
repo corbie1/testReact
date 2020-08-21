@@ -7,11 +7,10 @@ import {useSelector, useDispatch} from 'react-redux';
 
 function Enter(props){
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.User);
     return (
         <div>
-            <input  onChange={e => dispatch(ActionCreator.getLogin(e.target.value))} type='text' placeholder='username on github'/>
-            <button onClick={e => dispatch(ActionCreator.getUser(user))}>Войти</button>
+            <input  onChange={e => dispatch(ActionCreator.setLogin(e.target.value))} type='text' placeholder='username on github'/>
+            <button onClick={() => dispatch(ActionCreator.getUserAvatar())}>Войти</button>
 
         </div>
     );
