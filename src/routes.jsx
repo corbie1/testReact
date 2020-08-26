@@ -18,12 +18,12 @@ export default(
     <Route
     exact = {true}
     path={routeConfig.INDEX}
-    component = {WrappedComponent(Terminals)}
+    component = {Enter}
     />
     <Route
     exact = {true}
     path={routeConfig.ENTER}
-    component = {WrappedComponent(Enter)}
+    component = {Enter}
     />
     <Route
     exact = {true}

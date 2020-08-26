@@ -6,6 +6,7 @@ import routes from './routes';
 import {BrowserRouter as Router} from "react-router-dom";
 import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
+import { history } from './history.js'
 
 // Store & Api
 import createSagaMiddleware from 'redux-saga';
@@ -29,8 +30,8 @@ action(ActionType.FETCH_INITIAL_DATA);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-    <Router>
+    <Provider {...{store}}>
+      <Router {...{history}}>
       {routes}
     </Router>
     </Provider>

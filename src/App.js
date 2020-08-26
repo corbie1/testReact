@@ -5,7 +5,7 @@ import Header from './components/layout/header'
 export const App = ({ children }) => {  
   return (
     <div className="App">
-      <Header />  
+      <Header></Header>
       <main>{children}</main>
     </div>
   );
