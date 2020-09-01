@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 
 function Enter(props){
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-    const avatar = useSelector((state) => state.User.avatar);
 
   
     var regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@#!%*?&])[A-Za-z\d$@$!%*?&]{8,32}/;
@@ -17,7 +16,7 @@ function Enter(props){
       await(300)
       dispatch(ActionCreator.setLogin(values.username))
       dispatch(ActionCreator.getUserAvatar())
-
+      
     }
     
     const dispatch = useDispatch();
@@ -44,42 +43,44 @@ function Enter(props){
         }}
         
         render={({ handleSubmit, form, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit}>
+          <form className="b-form" onSubmit={handleSubmit}>
             <Field name="username">
               {({ input, meta }) => (
-                <div>
-                  <label>Username</label>
-                  <input {...input} type="text" placeholder="Username"/>
+                <div className="form__field">
+                  <label className="form__label">Username</label>
+                  <input className="form__input" {...input} type="text" placeholder="Username"/>
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
             </Field>
             <Field name="password">
               {({ input, meta }) => (
-                <div>
-                  <label>Password</label>
-                  <input {...input} type="password" placeholder="Password" />
+                <div className="form__field"> 
+                  <label  className="form__label">Password</label>
+                  <input className="form__input" {...input} type="password" placeholder="Password" />
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
             </Field>
             <Field name="confirm">
               {({ input, meta }) => (
-                <div>
-                  <label>Confirm</label>
-                  <input {...input} type="password" placeholder="Confirm" />
+                <div className="form__field">
+                  <label  className="form__label">Confirm</label>
+                  <input  className="form__input" {...input} type="password" placeholder="Confirm" />
                   {meta.error && meta.touched && <span>{meta.error}</span>}
                 </div>
               )}
             </Field>
             <div className="buttons">
               <button 
+              className="button button__enter"
               type="submit"
               disabled={submitting || pristine} 
              >
                 Войти
               </button>
-              <button
+              <button 
+                className="button button__enter"
                 type="button"
                 onClick={form.reset}
                 disabled={submitting || pristine}
@@ -87,7 +88,6 @@ function Enter(props){
                 Сбросить
               </button>
             </div>
-            <img src={avatar}></img>
 
           </form>
         )}

@@ -4,7 +4,7 @@ import {App} from './App';
 import routeConfig from './config/routes';
 import Enter from './components/enter/enter'
 import Buyers from './components/buyers/buyers';
-import Terminals from './components/terminals/terminals';
+import AddTerminal from './components/terminals/addTerminal';
 import ClientPage from './components/clientPage/clientPage';
 const WrappedComponent = (Component) => () =>(
     <App>
@@ -33,7 +33,7 @@ export default(
     <Route
     exact = {true}
     path={routeConfig.TERMINALS}
-    component = {WrappedComponent(Terminals)}
+    component = {WrappedComponent(AddTerminal)}
     />
     <Route
     exact = {true}

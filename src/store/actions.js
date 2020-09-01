@@ -17,4 +17,8 @@ export const ActionCreator = {
       type: 'GET_USER_AVATAR_SUCCESS',
       payload: avatar_url
     }),
+    setTerminal: (terminal) =>({
+      type: 'SET_TERMINAL',
+      payload: terminal,
+    }),
 };

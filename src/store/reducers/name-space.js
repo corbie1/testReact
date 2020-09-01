@@ -1,7 +1,8 @@
 /* eslint-disablee */
 export const NameSpace = {
-    USER: 'User',
-    APP: 'App'
+    USER: 'user',
+    APP: 'app',
+    TERMINAL: 'terminal',
 }
 
 export default NameSpace;

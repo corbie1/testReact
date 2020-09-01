@@ -2,7 +2,6 @@ import { call, put, all, takeLatest, select, throttle } from 'redux-saga/effects
 import {ActionType} from '../store/action-types';
 import {Operation} from '../api/operations';
 import {ActionCreator} from '../store/actions';
-import { useHistory } from "react-router-dom";
 
 import {history} from '../history.js'
 
@@ -20,13 +19,16 @@ async function getUserJson(url) {
   return resp;
 }
 
-function* fetchUserApi(state){
-  const username = yield select(state => state.User.login);
+
+
+
+function* fetchUserApi(state, context){
+  const username = yield select(state => state.user.login);
   try{
     const{data,err} = yield call(getUserJson, `https://api.github.com/users/${username}`);
     if(data.message != "Not Found"){
-      yield put(ActionCreator.getUserAvatarSuccess(data.avatar_url))
-      history.push(`/Terminals`)
+        yield put(ActionCreator.getUserAvatarSuccess(data.avatar_url))
+      history.push('/terminals')
     }
     else
       yield put(ActionCreator.getUserAvatarFailure({...err.message }));
